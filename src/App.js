@@ -1,16 +1,13 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './App.css';
-import ButtonAppBar from './components/ButtonAppBar';
 import TemporatyDrawer from './components/TemporatyDrawer';
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <TemporatyDrawer />
-      </div>
-    );
-  }
+function App() {
+  return (
+    <div className="App">
+      <TemporatyDrawer />
+    </div>
+  );
 }
 
 export default App;

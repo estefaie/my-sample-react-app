@@ -17,18 +17,23 @@ const styles = {
 };
 
 class TemporaryDrawer extends React.Component {
-  state = {
-    top: false,
-    left: false,
-    bottom: false,
-    right: false,
-  };
+  constructor() {
+    super();
+    this.state = {
+      top: false,
+      left: false,
+      bottom: false,
+      right: false,
+    };
+  }
 
-  toggleDrawer = (side, open) => () => {
-    this.setState({
-      [side]: open,
-    });
-  };
+  toggleDrawer(side, open) {
+    return () => {
+      this.setState({
+        [side]: open,
+      });
+    };
+  }
 
   render() {
     const { classes } = this.props;
@@ -55,7 +60,10 @@ class TemporaryDrawer extends React.Component {
         <Button onClick={this.toggleDrawer('right', true)}>Open Right</Button>
         <Button onClick={this.toggleDrawer('top', true)}>Open Top</Button>
         <Button onClick={this.toggleDrawer('bottom', true)}>Open Bottom</Button>
-        <Drawer open={this.state.left} onClose={this.toggleDrawer('left', false)}>
+        <Drawer
+          open={this.state.left}
+          onClose={this.toggleDrawer('left', false)}
+        >
           <div
             tabIndex={0}
             role="button"
@@ -65,7 +73,11 @@ class TemporaryDrawer extends React.Component {
             {sideList}
           </div>
         </Drawer>
-        <Drawer anchor="top" open={this.state.top} onClose={this.toggleDrawer('top', false)}>
+        <Drawer
+          anchor="top"
+          open={this.state.top}
+          onClose={this.toggleDrawer('top', false)}
+        >
           <div
             tabIndex={0}
             role="button"
@@ -89,7 +101,11 @@ class TemporaryDrawer extends React.Component {
             {fullList}
           </div>
         </Drawer>
-        <Drawer anchor="right" open={this.state.right} onClose={this.toggleDrawer('right', false)}>
+        <Drawer
+          anchor="right"
+          open={this.state.right}
+          onClose={this.toggleDrawer('right', false)}
+        >
           <div
             tabIndex={0}
             role="button"
